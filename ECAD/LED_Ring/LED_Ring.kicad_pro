@@ -460,7 +460,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "LED_Ring.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

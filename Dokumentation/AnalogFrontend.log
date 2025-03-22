@@ -1,0 +1,53 @@
+Circuit: * D:\Privat\Git\DICV3\Dokumentation\AnalogFrontend.asc
+
+Instance "m:u2:p7": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:p5": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:n8": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:n6": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:p2": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:p1": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:p7": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:p5": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:n8": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:n6": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:p2": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u1:p1": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+Gmin = 1.76685e-007
+Gmin = 1.89714e-008
+Gmin = 2.03704e-009
+Gmin = 2.18725e-010
+Gmin = 2.34854e-011
+Gmin = 2.52173e-012
+Gmin = 2.70769e-013
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+
+Date: Fri Mar 14 21:05:24 2025
+Total elapsed time: 0.169 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2781
+traniter = 2170
+tranpoints = 1055
+accept = 1051
+rejected = 4
+matrix size = 203
+fillins = 131
+solver = Normal
+Thread vector: 7.6/5.7[4] 9.5/4.2[4] 1.3/1.8[1] 0.5/0.7[1]  2592/500
+Matrix Compiler1: 13.89 KB object code size  3.0/1.2/[0.7]
+Matrix Compiler2: 19.57 KB object code size  1.9/2.8/[1.0]
+

@@ -1,4 +1,4 @@
-22470507309000666
+22472249436407152
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -61767,6 +61767,13 @@ CONN_500762-1001_MOL
 0
 50
 50
+Lukas
+CONN_SD-43045-001_14_MOL
+
+430451400 
+0
+14
+14
 Lukas
 Converter_DCDC_RECOM_RPMx.x-x.0
 https://www.recom-power.com/pdf/Innoline/RPM-6.0.pdf

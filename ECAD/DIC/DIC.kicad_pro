@@ -460,7 +460,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "DIC.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -507,6 +507,10 @@
     [
       "f6b69984-9dac-43ef-98a3-3052766f7d30",
       "Analog"
+    ],
+    [
+      "686c77eb-8dbe-46c8-ba78-2cfcedb8436d",
+      "Analog2"
     ]
   ],
   "text_variables": {}
