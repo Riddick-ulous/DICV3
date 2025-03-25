@@ -461,7 +461,7 @@
       "netlist": "",
       "specctra_dsn": "",
       "step": "DIC_Addon.step",
-      "vrml": ""
+      "vrml": "DIC_Addon.wrl"
     },
     "page_layout_descr_file": ""
   },
