@@ -1,0 +1,1 @@
+Datenlogging SPI funktioniert nur bis commit bevor Realtime implementation angefangen hat
