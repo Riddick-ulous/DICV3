@@ -1,0 +1,3 @@
+Pad uC Decoupling 4,7uF 0603 statt 0805 abgesehen von einem
+c6 und c8 steht in r56 silcscreen kollision
+LED resistor 100 und 330ohm durch 1000ohm

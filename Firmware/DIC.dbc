@@ -1,0 +1,55 @@
+VERSION "DICV3 CAN Matrix"
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_:
+
+BU_: ECU
+
+BO_ 256 LoopUsage: 8 ECU
+ SG_ Loop1ms   : 0|16@1+ (0.1,0) [0|6553.5] "%"  ECU
+ SG_ Loop10ms  : 16|16@1+ (0.1,0) [0|6553.5] "%" ECU
+ SG_ Loop100ms : 32|16@1+ (0.1,0) [0|6553.5] "%" ECU
+ SG_ Loop200ms : 48|16@1+ (0.1,0) [0|6553.5] "%" ECU
+
+BO_ 257 ADC_Values: 8 ECU
+ SG_ ADC_CH0 : 0|16@1+ (1,0) [0|4095] "LSB" ECU
+ SG_ ADC_CH1 : 16|16@1+ (1,0) [0|4095] "LSB" ECU
+ SG_ ADC_CH2 : 32|16@1+ (1,0) [0|4095] "LSB" ECU
+ SG_ ADC_CH3 : 48|16@1+ (1,0) [0|4095] "LSB" ECU
+
+CM_ BO_ 256 "Loop-Timer Usage in 0.1% Schritten (max seit letztem Reset)";
+CM_ BO_ 257 "Gemittelte ADC-Werte aller 4 Kanäle";
+
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 60000;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 256 10;
+BA_ "GenMsgCycleTime" BO_ 257 10;

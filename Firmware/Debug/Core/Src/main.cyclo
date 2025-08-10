@@ -1,0 +1,15 @@
+../Core/Inc/LOOP_TIMER.h:39:18:loop_init	1
+../Core/Inc/LOOP_TIMER.h:52:21:loop_due	4
+../Core/Inc/LOOP_TIMER.h:61:18:loop_start	1
+../Core/Inc/LOOP_TIMER.h:72:18:loop_end	3
+../Core/Src/main.c:160:8:init_loops	1
+../Core/Src/main.c:96:5:main	10
+../Core/Src/main.c:294:6:SystemClock_Config	3
+../Core/Src/main.c:332:13:MX_ADC_Init	6
+../Core/Src/main.c:410:13:MX_CAN_Init	2
+../Core/Src/main.c:447:13:MX_SPI1_Init	2
+../Core/Src/main.c:487:13:MX_SPI2_Init	2
+../Core/Src/main.c:527:13:MX_TIM2_Init	4
+../Core/Src/main.c:570:13:MX_DMA_Init	1
+../Core/Src/main.c:588:13:MX_GPIO_Init	1
+../Core/Src/main.c:692:6:Error_Handler	1

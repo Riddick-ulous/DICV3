@@ -1,0 +1,5 @@
+../Core/Src/ERROR.c:16:6:Error_Register	3
+../Core/Src/ERROR.c:24:6:Error_Clear	3
+../Core/Src/ERROR.c:31:10:Error_GetAll	1
+../Core/Src/ERROR.c:36:6:Error_ReportAll	1
+../Core/Src/ERROR.c:43:6:Display_ErrorStatus	2
