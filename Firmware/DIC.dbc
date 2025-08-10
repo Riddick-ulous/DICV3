@@ -45,11 +45,169 @@ BO_ 257 ADC_Values: 8 ECU
  SG_ ADC_CH1 : 16|16@1+ (1,0) [0|4095] "LSB" ECU
  SG_ ADC_CH2 : 32|16@1+ (1,0) [0|4095] "LSB" ECU
  SG_ ADC_CH3 : 48|16@1+ (1,0) [0|4095] "LSB" ECU
+ 
+ BO_ 272 LED_0_1: 8 ECU
+ SG_ LED0_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED0_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED0_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED0_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED1_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED1_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED1_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED1_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 273 LED_2_3: 8 ECU
+ SG_ LED2_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED2_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED2_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED2_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED3_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED3_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED3_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED3_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 274 LED_4_5: 8 ECU
+ SG_ LED4_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED4_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED4_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED4_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED5_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED5_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED5_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED5_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 275 LED_6_7: 8 ECU
+ SG_ LED6_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED6_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED6_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED6_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED7_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED7_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED7_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED7_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 276 LED_8_9: 8 ECU
+ SG_ LED8_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED8_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED8_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED8_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED9_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED9_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED9_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED9_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 277 LED_10_11: 8 ECU
+ SG_ LED10_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED10_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED10_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED10_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED11_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED11_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED11_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED11_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 278 LED_12_13: 8 ECU
+ SG_ LED12_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED12_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED12_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED12_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED13_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED13_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED13_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED13_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 279 LED_14_15: 8 ECU
+ SG_ LED14_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED14_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED14_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED14_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED15_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED15_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED15_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED15_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 280 LED_16_17: 8 ECU
+ SG_ LED16_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED16_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED16_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED16_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED17_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED17_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED17_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED17_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 281 LED_18_19: 8 ECU
+ SG_ LED18_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED18_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED18_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED18_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED19_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED19_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED19_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED19_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 282 LED_20_21: 8 ECU
+ SG_ LED20_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED20_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED20_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED20_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED21_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED21_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED21_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED21_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+
+BO_ 283 LED_22_23: 8 ECU
+ SG_ LED22_R : 0|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED22_G : 8|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED22_B : 16|8@1+ (1,0) [0|255] "" Receiver
+ SG_ LED22_Brightness : 24|8@1+ (1,0) [0|31] "" Receiver
+ SG_ LED23_R : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED23_G : 40|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED23_B : 48|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ LED23_Brightness : 56|8@1+ (1,0) [0|31] "" Receiver
+ 
+ BO_ 288 ADC_Config: 4 ECU
+ SG_ ADC0_InputRange  : 0|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC0_SensorType  : 1|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC1_InputRange  : 8|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC1_SensorType  : 9|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC2_InputRange  : 16|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC2_SensorType  : 17|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC3_InputRange  : 24|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC3_SensorType  : 25|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ 
+ BO_ 289 ADC_ConfigStatus: 4 ECU
+ SG_ ADC0_InputRange  : 0|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC0_SensorType  : 1|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC1_InputRange  : 8|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC1_SensorType  : 9|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC2_InputRange  : 16|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC2_SensorType  : 17|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+ SG_ ADC3_InputRange  : 24|1@1+ (1,0) [0|1] "5V/12V" ECU
+ SG_ ADC3_SensorType  : 25|1@1+ (1,0) [0|1] "Normal/NTC" ECU
+
 
 CM_ BO_ 256 "Loop-Timer Usage in 0.1% Schritten (max seit letztem Reset)";
 CM_ BO_ 257 "Gemittelte ADC-Werte aller 4 Kanäle";
+CM_ BO_ 288 "Konfiguriert Input-Range (0=5V, 1=12V) und Sensortyp (0=Normal, 1=NTC) für die 4 ADC-Kanäle.";
+CM_ BO_ 289 "Gibt die aktuell aktive Input-Range und den Sensortyp zurück.";
 
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 60000;
 BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_ "GenMsgCycleTime" BO_ 256 10;
 BA_ "GenMsgCycleTime" BO_ 257 10;
+BA_ "GenMsgCycleTime" BO_ 272 50;
+BA_ "GenMsgCycleTime" BO_ 273 50;
+BA_ "GenMsgCycleTime" BO_ 274 50;
+BA_ "GenMsgCycleTime" BO_ 275 50;
+BA_ "GenMsgCycleTime" BO_ 276 50;
+BA_ "GenMsgCycleTime" BO_ 277 50;
+BA_ "GenMsgCycleTime" BO_ 278 50;
+BA_ "GenMsgCycleTime" BO_ 279 50;
+BA_ "GenMsgCycleTime" BO_ 280 50;
+BA_ "GenMsgCycleTime" BO_ 281 50;
+BA_ "GenMsgCycleTime" BO_ 282 50;
+BA_ "GenMsgCycleTime" BO_ 283 50;
+BA_ "GenMsgCycleTime" BO_ 288 100;
+BA_ "GenMsgCycleTime" BO_ 289 100;
+

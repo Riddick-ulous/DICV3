@@ -9,6 +9,7 @@
 #define ERROR_H
 
 #include <stdint.h>
+#include "main.h"
 
 // Fehlercodes definieren
 typedef enum {
@@ -47,6 +48,8 @@ uint32_t Error_GetAll(void);
 void Error_ReportAll(void);
 
 void Display_ErrorStatus(void);
+
+void Error_LED_Update(void);
 
 #endif
 

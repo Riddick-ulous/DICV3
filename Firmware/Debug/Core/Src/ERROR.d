@@ -1,7 +1,5 @@
 Core/Src/ERROR.o: ../Core/Src/ERROR.c ../Core/Inc/error.h \
- E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
- E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h \
- ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
+ ../Core/Inc/main.h ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
  ../Core/Inc/stm32f0xx_hal_conf.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h \
@@ -33,11 +31,12 @@ Core/Src/ERROR.o: ../Core/Src/ERROR.c ../Core/Inc/error.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h \
+ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
+ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h \
  E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h \
  E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h
 ../Core/Inc/error.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h:
+../Core/Inc/main.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:
 ../Core/Inc/stm32f0xx_hal_conf.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h:
@@ -70,5 +69,7 @@ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h:
 E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h:
 E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:

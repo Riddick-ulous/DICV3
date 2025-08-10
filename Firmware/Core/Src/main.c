@@ -29,6 +29,7 @@
 #include "RGBLED.h"
 #include "LOOP_TIMER.h"
 #include "ADC.h"
+#include "RGBLED.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -128,6 +129,9 @@ int main(void)
   HAL_TIM_Base_Start(&htim2);
   RGBLED_Init();
   ADC_Init();
+
+  CAN_RegisterRxCallback(RGBLED_HandleCAN);
+  CAN_RegisterRxCallback(ADC_HandleCAN);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -221,6 +225,8 @@ int main(void)
 				   Error_Register(ERROR_CAN_QUEUE_FULL);
 				}
 
+				RGBLED_TimeoutCheck(systime, &hspi2);
+
 	  	      loop_end(&loop_10ms, ERROR_LOOP_OVERRUN_10MS);
 	  	    }
 
@@ -231,20 +237,8 @@ int main(void)
 			  ssd1306_SetCursor(0, 0);
 			  ssd1306_WriteString("Hello World", Font_6x8, White);
 
-			  RGBLED_TestPattern();
-			  RGBLED_Update(&hspi2);
-
-			  CAN_Message_t CANmsg;
-			  CANmsg.id = 0x123;
-			  CANmsg.dlc = 2;
-			  CANmsg.data[0] = 0xAB;
-			  CANmsg.data[1] = 0xCD;
-
-			  if (CAN_QueueMessage(&CANmsg) != HAL_OK)
-			  {
-				   Error_Register(ERROR_CAN_QUEUE_FULL);
-				   // Programm läuft regulär weiter
-			  }
+			  //RGBLED_TestPattern();
+			  //RGBLED_Update(&hspi2);
 
 			  CAN_Message_t* received = CAN_GetMessage(0x321);
 			  uint16_t value = 0;
@@ -265,6 +259,8 @@ int main(void)
 
 			  ssd1306_UpdateScreen();
 
+			  ADC_SendCurrentConfig();
+
 			  loop_end(&loop_100ms, ERROR_LOOP_OVERRUN_100MS);
 		}
 
@@ -273,7 +269,7 @@ int main(void)
 				loop_start(&loop_200ms, systime);
 
 	  		  HAL_GPIO_TogglePin(Heart_GPIO_Port,Heart_Pin);
-	  		  //HAL_GPIO_TogglePin(Error_GPIO_Port,Error_Pin);
+	  		  Error_LED_Update();  // LED-Steuerung hier
 
 	  		loop_end(&loop_200ms, ERROR_LOOP_OVERRUN_200MS);
 		}

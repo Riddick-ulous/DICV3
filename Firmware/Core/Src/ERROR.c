@@ -56,3 +56,25 @@ void Display_ErrorStatus(void)
 
     ssd1306_UpdateScreen();
 }
+
+// Interner Zustand für Blink-Timing
+static uint8_t error_led_state = 0;
+
+void Error_LED_Update(void)
+{
+    if (Error_GetAll() != 0)
+    {
+        // Mindestens ein Fehler aktiv → LED toggeln
+        HAL_GPIO_TogglePin(Error_GPIO_Port, Error_Pin);
+        error_led_state = 1;
+    }
+    else
+    {
+        // Keine Fehler → LED aus, Zustand merken
+        if (error_led_state)
+        {
+            HAL_GPIO_WritePin(Error_GPIO_Port, Error_Pin, GPIO_PIN_RESET);
+            error_led_state = 0;
+        }
+    }
+}

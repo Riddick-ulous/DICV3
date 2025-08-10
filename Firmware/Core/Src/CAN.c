@@ -18,6 +18,13 @@ static CAN_Message_t TxQueue[CAN_TX_QUEUE_LENGTH];
 static volatile uint8_t TxQueueHead = 0;
 static volatile uint8_t TxQueueTail = 0;
 
+static CAN_RxCallback_t can_rx_callback = NULL;
+
+void CAN_RegisterRxCallback(CAN_RxCallback_t cb)
+{
+    can_rx_callback = cb;
+}
+
 // ---------- Empfang ----------
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
@@ -27,6 +34,11 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
     if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK) {
         Error_Handler();
+    }
+
+    // Callback aufrufen, falls registriert
+    if (can_rx_callback) {
+        can_rx_callback(rxHeader.StdId, rxData, rxHeader.DLC, HAL_GetTick());
     }
 
     // Update bestehende Nachricht

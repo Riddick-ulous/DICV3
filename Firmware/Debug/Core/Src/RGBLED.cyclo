@@ -1,4 +1,7 @@
-../Core/Src/RGBLED.c:13:6:RGBLED_Init	2
-../Core/Src/RGBLED.c:23:6:RGBLED_Set	3
-../Core/Src/RGBLED.c:32:6:RGBLED_Update	3
-../Core/Src/RGBLED.c:56:6:RGBLED_TestPattern	5
+../Core/Src/RGBLED.c:16:6:RGBLED_Init	2
+../Core/Src/RGBLED.c:26:6:RGBLED_Set	3
+../Core/Src/RGBLED.c:35:6:RGBLED_Update	3
+../Core/Src/RGBLED.c:59:6:RGBLED_TestPattern	5
+../Core/Src/RGBLED.c:80:6:RGBLED_HandleCAN	4
+../Core/Src/RGBLED.c:95:6:RGBLED_TimeoutCheck	7
+../Core/Src/RGBLED.c:130:6:RGBLED_AllOff	2

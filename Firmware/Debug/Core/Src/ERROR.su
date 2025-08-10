@@ -3,3 +3,4 @@
 ../Core/Src/ERROR.c:31:10:Error_GetAll	8	static
 ../Core/Src/ERROR.c:36:6:Error_ReportAll	8	static
 ../Core/Src/ERROR.c:43:6:Display_ErrorStatus	40	static
+../Core/Src/ERROR.c:63:6:Error_LED_Update	8	static
