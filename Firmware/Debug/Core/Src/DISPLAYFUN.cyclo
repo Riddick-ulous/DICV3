@@ -1,0 +1,16 @@
+../Core/Src/DISPLAYFUN.c:13:22:idx	1
+../Core/Src/DISPLAYFUN.c:15:13:clear_mem	1
+../Core/Src/DISPLAYFUN.c:19:6:DISP_GoHome	1
+../Core/Src/DISPLAYFUN.c:24:6:DISP_SendStatus	1
+../Core/Src/DISPLAYFUN.c:34:6:DISP_Init	2
+../Core/Src/DISPLAYFUN.c:47:6:DISP_SetPage	2
+../Core/Src/DISPLAYFUN.c:57:9:DISP_GetPage	1
+../Core/Src/DISPLAYFUN.c:59:6:DISP_ClearPage	2
+../Core/Src/DISPLAYFUN.c:65:6:DISP_ClearActive	1
+../Core/Src/DISPLAYFUN.c:67:6:DISP_Render	2
+../Core/Src/DISPLAYFUN.c:81:6:DISP_WriteText	7
+../Core/Src/DISPLAYFUN.c:100:6:DISP_WriteChar	3
+../Core/Src/DISPLAYFUN.c:107:6:DISP_WriteNumber	42
+../Core/Src/DISPLAYFUN.c:215:6:DISP_WriteLapTime	1
+../Core/Src/DISPLAYFUN.c:234:6:DISP_HandleCAN	5
+../Core/Src/DISPLAYFUN.c:246:7:DISP_GetBufferForPage	2

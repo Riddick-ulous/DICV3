@@ -1,5 +1,6 @@
 "./Core/Src/ADC.o"
 "./Core/Src/CAN.o"
+"./Core/Src/DISPLAYFUN.o"
 "./Core/Src/ERROR.o"
 "./Core/Src/LOOP_TIMER.o"
 "./Core/Src/RGBLED.o"

@@ -32,6 +32,13 @@ typedef enum {
     ERROR_LOOP_OVERRUN_200MS = 14,
 
 	ERROR_CAN_RX_EMPTY = 15,
+	// DISPLAY / UI Fehler (ab 16)
+	ERROR_DISPLAY_INVALID_PAGE      = 16, // Page >= DISP_MAX_PAGES
+	ERROR_DISPLAY_INVALID_ROW       = 17, // row >= DISP_ROWS
+	ERROR_DISPLAY_INVALID_COL       = 18, // col >= DISP_COLS
+	ERROR_DISPLAY_WRITE_CLIPPED     = 19, // Text/Zahl wurde beim Schreiben abgeschnitten
+	ERROR_DISPLAY_BAD_DECIMALS      = 20, // decimals < 0 oder zu groß (intern begrenzt)
+	ERROR_DISPLAY_MINWIDTH_TOO_BIG  = 21, // min_width > verbleibende Spalten in der Zeile
     // weitere Fehler hier hinzufügen...
 } ErrorCode_t;
 

@@ -1,4 +1,6 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Core/Src/DISPLAYFUN.o: ../Core/Src/DISPLAYFUN.c ../Core/Inc/DISPLAYFUN.h \
+ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
+ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
  ../Core/Inc/stm32f0xx_hal_conf.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h \
@@ -31,14 +33,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h \
- ../Core/Inc/CAN.h ../Core/Inc/ERROR.h ../Core/Inc/main.h \
- E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
- E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h \
  E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h \
- E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
- ../Core/Inc/RGBLED.h ../Core/Inc/LOOP_TIMER.h ../Core/Inc/error.h \
- ../Core/Inc/ADC.h ../Core/Inc/DISPLAYFUN.h
-../Core/Inc/main.h:
+ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h ../Core/Inc/CAN.h \
+ ../Core/Inc/ERROR.h ../Core/Inc/main.h
+../Core/Inc/DISPLAYFUN.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:
 ../Core/Inc/stm32f0xx_hal_conf.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h:
@@ -71,15 +71,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h:
+E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
 ../Core/Inc/CAN.h:
 ../Core/Inc/ERROR.h:
 ../Core/Inc/main.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_conf.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h:
-E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
-../Core/Inc/RGBLED.h:
-../Core/Inc/LOOP_TIMER.h:
-../Core/Inc/error.h:
-../Core/Inc/ADC.h:
-../Core/Inc/DISPLAYFUN.h:

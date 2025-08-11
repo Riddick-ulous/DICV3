@@ -30,6 +30,7 @@
 #include "LOOP_TIMER.h"
 #include "ADC.h"
 #include "RGBLED.h"
+#include "DISPLAYFUN.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -132,11 +133,13 @@ int main(void)
 
   CAN_RegisterRxCallback(RGBLED_HandleCAN);
   CAN_RegisterRxCallback(ADC_HandleCAN);
+  CAN_RegisterRxCallback(DISP_HandleCAN);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+/*
   ssd1306_Init();
   ssd1306_Fill(White);
   ssd1306_DrawPixel(2, 2, Black);
@@ -147,7 +150,10 @@ int main(void)
   ssd1306_SetCursor(0, 0);
   ssd1306_WriteString("Hello World", Font_6x8, White);
   ssd1306_UpdateScreen();
+*/
 
+  DISP_Init();
+  DISP_GoHome();
 
   HAL_GPIO_WritePin(GPIO1_12VOut_GPIO_Port,GPIO1_12VOut_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(GPIO1_5VOut_GPIO_Port,GPIO1_5VOut_Pin, GPIO_PIN_RESET);
@@ -234,8 +240,12 @@ int main(void)
 	  	    if (loop_due(&loop_100ms, systime)) {
 	  	        loop_start(&loop_100ms, systime);
 
-			  ssd1306_SetCursor(0, 0);
-			  ssd1306_WriteString("Hello World", Font_6x8, White);
+	  	      // Page 0 befüllen
+	  	      DISP_SetPage(0);
+	  	      DISP_WriteLabel(0, 0, "Hello World");
+	  	      DISP_WriteNumber(1234, 2, 6, 1, 0, "V");     // → "  12.34V" bei min_width=6
+	  	      DISP_WriteLapTime(90567, 2, 0);              // → "1:30.567"
+	  	      DISP_Render();
 
 			  //RGBLED_TestPattern();
 			  //RGBLED_Update(&hspi2);
@@ -252,7 +262,7 @@ int main(void)
 			  char buffer[16];
 			  snprintf(buffer, sizeof(buffer), "Wert: %u", value);
 
-			  ssd1306_SetCursor(0, 10);
+			  ssd1306_SetCursor(0, 8);
 			  ssd1306_WriteString(buffer, Font_6x8, White);
 
 			  Display_ErrorStatus();
