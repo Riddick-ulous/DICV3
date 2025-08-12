@@ -31,6 +31,7 @@
 #include "ADC.h"
 #include "RGBLED.h"
 #include "DISPLAYFUN.h"
+#include "BootLogo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -177,6 +178,12 @@ int main(void)
 
   init_loops();
 
+  DISP_ShowBootLogoEx(boot_logo, BOOT_LOGO_W, BOOT_LOGO_H,
+		  /*invert=*/false,
+          /*xbm_row_major=*/false,
+          /*xbm_msb_first=*/false);
+  HAL_Delay(3000);
+
   while (1)
   {
 
@@ -233,6 +240,8 @@ int main(void)
 
 				RGBLED_TimeoutCheck(systime, &hspi2);
 
+				DISP_Render();
+
 	  	      loop_end(&loop_10ms, ERROR_LOOP_OVERRUN_10MS);
 	  	    }
 
@@ -245,7 +254,6 @@ int main(void)
 	  	      DISP_WriteLabel(0, 0, "Hello World");
 	  	      DISP_WriteNumber(1234, 2, 6, 1, 0, "V");     // → "  12.34V" bei min_width=6
 	  	      DISP_WriteLapTime(90567, 2, 0);              // → "1:30.567"
-	  	      DISP_Render();
 
 			  //RGBLED_TestPattern();
 			  //RGBLED_Update(&hspi2);
@@ -259,15 +267,15 @@ int main(void)
 			      Error_Register(ERROR_CAN_RX_EMPTY);
 			  }
 
-			  char buffer[16];
-			  snprintf(buffer, sizeof(buffer), "Wert: %u", value);
-
+	  	      DISP_SetPage(0);
+	  	      DISP_WriteNumber(value, 0, 6, 4, 0, "-");     // → "  12.34V" bei min_width=6
+	  	      /*
 			  ssd1306_SetCursor(0, 8);
 			  ssd1306_WriteString(buffer, Font_6x8, White);
+	  	      */
+			  Display_ErrorStatus(0, 3, 0);
 
-			  Display_ErrorStatus();
-
-			  ssd1306_UpdateScreen();
+			  //ssd1306_UpdateScreen();
 
 			  ADC_SendCurrentConfig();
 

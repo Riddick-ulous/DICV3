@@ -39,7 +39,7 @@ void Error_ReportAll(void)
    printf("Aktive Fehler: 0x%08lX\r\n", errorFlags);
 }
 
-
+/*
 void Display_ErrorStatus(void)
 {
     uint32_t errors = Error_GetAll();
@@ -56,7 +56,7 @@ void Display_ErrorStatus(void)
 
     ssd1306_UpdateScreen();
 }
-
+*/
 // Interner Zustand für Blink-Timing
 static uint8_t error_led_state = 0;
 

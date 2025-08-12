@@ -37,7 +37,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306_fonts.h \
  E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h \
  ../Core/Inc/RGBLED.h ../Core/Inc/LOOP_TIMER.h ../Core/Inc/error.h \
- ../Core/Inc/ADC.h ../Core/Inc/DISPLAYFUN.h
+ ../Core/Inc/ADC.h ../Core/Inc/DISPLAYFUN.h ../Core/Inc/ERROR.h \
+ ../Core/Inc/BootLogo.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:
 ../Core/Inc/stm32f0xx_hal_conf.h:
@@ -83,3 +84,5 @@ E:/Privat/Git/DICV3/Firmware/Drivers/SSD1306/ssd1306.h:
 ../Core/Inc/error.h:
 ../Core/Inc/ADC.h:
 ../Core/Inc/DISPLAYFUN.h:
+../Core/Inc/ERROR.h:
+../Core/Inc/BootLogo.h:

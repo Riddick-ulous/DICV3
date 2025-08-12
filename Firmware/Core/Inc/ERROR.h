@@ -53,9 +53,9 @@ uint32_t Error_GetAll(void);
 
 // Ausgabe auf Display oder per CAN senden
 void Error_ReportAll(void);
-
+/*
 void Display_ErrorStatus(void);
-
+*/
 void Error_LED_Update(void);
 
 #endif

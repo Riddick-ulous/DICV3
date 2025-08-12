@@ -46,12 +46,9 @@ void DISP_Init(void)
 
 void DISP_SetPage(uint8_t page)
 {
-    if (page >= DISP_MAX_PAGES) {
-        Error_Register(ERROR_DISPLAY_INVALID_PAGE);
-        return;
-    }
+    if (page >= DISP_MAX_PAGES) { Error_Register(ERROR_DISPLAY_INVALID_PAGE); return; }
     s_active_page = page;
-    DISP_Render();
+    // KEIN Render hier!
 }
 
 uint8_t DISP_GetPage(void) { return s_active_page; }
@@ -248,3 +245,173 @@ char* DISP_GetBufferForPage(uint8_t page)
     if (page >= DISP_MAX_PAGES) return NULL;
     return s_pages[page];
 }
+
+void Display_ErrorStatus(uint8_t page, uint8_t row, uint8_t col)
+{
+    uint32_t errors = Error_GetAll();
+
+    // Plausibilitäts-Checks
+    if (page >= DISP_MAX_PAGES) {
+        Error_Register(ERROR_DISPLAY_INVALID_PAGE);
+        return;
+    }
+    if (row >= DISP_ROWS) {
+        Error_Register(ERROR_DISPLAY_INVALID_ROW);
+        return;
+    }
+    if (col >= DISP_COLS) {
+        Error_Register(ERROR_DISPLAY_INVALID_COL);
+        return;
+    }
+
+    // Temporär aktive Page sichern
+    uint8_t old_page = DISP_GetPage();
+
+    // Gewünschte Page aktivieren
+    DISP_SetPage(page);
+
+    // Fehlerstatus schreiben
+    if (errors == 0) {
+        DISP_WriteText(row, col, "Status: OK");
+    } else {
+        char buffer[DISP_COLS + 1];
+        snprintf(buffer, sizeof(buffer), "Err: 0x%08lX", (unsigned long)errors);
+        DISP_WriteText(row, col, buffer);
+    }
+
+    // Ursprüngliche Page wiederherstellen
+    DISP_SetPage(old_page);
+}
+
+// 1bpp: jedes Byte = 8 Pixel, MSB = linkes Pixel (row-major)
+void DISP_DrawBitmap(const uint8_t* bmp, uint8_t w, uint8_t h, uint8_t x, uint8_t y)
+{
+    if (!bmp) return;
+    // Display löschen wir NICHT hier – nur blitten
+    for (uint8_t row = 0; row < h; ++row) {
+        for (uint8_t col = 0; col < w; ++col) {
+            uint32_t bitIndex = (uint32_t)row * w + col;
+            uint8_t byte      = bmp[bitIndex >> 3];
+            uint8_t mask      = 0x80u >> (bitIndex & 7);
+            if (byte & mask) {
+                ssd1306_DrawPixel(x + col, y + row, White);
+            } else {
+                ssd1306_DrawPixel(x + col, y + row, Black); // optional: Hintergrund „löschen“
+            }
+        }
+    }
+}
+
+// Erwartet XBM-Layout: 1bpp, row-major, LSB-first pro Byte.
+// w,h = Logo-Größe in Pixeln.
+// invert = true -> Farben invertieren.
+// down_one_text_row = true -> zusätzlich 8 px nach unten schieben.
+// Erweiterte Variante: zusätzlich msb_first-Flag steuerbar.
+void DISP_ShowBootLogoEx(const uint8_t *logo,
+                         uint16_t w, uint16_t h,
+                         bool invert,
+                         bool down_one_text_row,
+                         bool msb_first)
+{
+    if (!logo || w == 0 || h == 0) return;
+
+    const uint16_t DISP_W = 128;
+    const uint16_t DISP_H = 64;
+
+    // Zentrierung berechnen
+    int16_t x0 = (int16_t)((DISP_W - w) / 2);
+    int16_t y0 = (int16_t)((DISP_H - h) / 2);
+    if (down_one_text_row) y0 += 8;
+
+    // Optional: vorher alles schwarz machen (sauberer Splash)
+    ssd1306_Fill(Black);
+
+    // Blit mit Clipping & Bit-Extraktion (auseinander sortieren)
+    BLIT_XBM_ToDisplay(logo, w, h, x0, y0, invert, msb_first);
+
+    ssd1306_UpdateScreen();
+}
+
+
+// Konvertiert XBM (row-major; MSB- oder LSB-first in jedem Byte) -> SSD1306 Page-Format
+void xbm_to_ssd1306_pages(uint8_t *dst, const uint8_t *src,
+                                 uint16_t w, uint16_t h, bool msb_first)
+{
+    uint16_t pages = h / 8;
+    uint16_t src_stride = (w + 7u) / 8u;   // Bytes pro Quellzeile
+
+    for (uint16_t page = 0; page < pages; page++) {
+        for (uint16_t x = 0; x < w; x++) {
+            uint8_t out = 0;
+            for (uint8_t bit = 0; bit < 8; bit++) {
+                uint16_t y = (page * 8u) + bit;
+
+                // Quellbyte + Bitposition in der XBM-Zeile finden
+                uint32_t src_idx = (uint32_t)y * src_stride + (x / 8u);
+                uint8_t  src_byte = src[src_idx];
+                uint8_t  bpos = msb_first ? (7u - (x & 7u)) : (x & 7u);
+                uint8_t  pix  = (src_byte >> bpos) & 1u;
+
+                out |= (pix << bit); // in SSD1306-Page-Byte einsetzen
+            }
+            dst[page * w + x] = out;
+        }
+    }
+}
+
+// ===== Helpers zum "Auseinander sortieren" eines XBM =====
+
+// optional: schnelles Bit-Reverse für MSB-first->LSB-first (falls du lieber Byte-vordrehen willst)
+static inline uint8_t bitrev8(uint8_t v) {
+    v = (uint8_t)((v & 0xF0u) >> 4) | (uint8_t)((v & 0x0Fu) << 4);
+    v = (uint8_t)((v & 0xCCu) >> 2) | (uint8_t)((v & 0x33u) << 2);
+    v = (uint8_t)((v & 0xAAu) >> 1) | (uint8_t)((v & 0x55u) << 1);
+    return v;
+}
+
+// holt ein einzelnes Bit aus einem XBM-Buffer (row-major, 1bpp), w = Bildbreite
+// msb_first=false: XBM-Standard (LSB-first je Byte). true: MSB-first Quellen.
+static inline uint8_t XBM_GetBit(const uint8_t* xbm, uint16_t w,
+                                 uint16_t x, uint16_t y, bool msb_first)
+{
+    const uint16_t bytes_per_row = (uint16_t)((w + 7u) / 8u);
+    const uint8_t* row = xbm + (size_t)y * bytes_per_row;
+    const uint16_t byte_idx = (uint16_t)(x >> 3);
+    const uint8_t  bit_idx  = (uint8_t)(x & 7u);
+
+    uint8_t b = row[byte_idx];
+    if (!msb_first) {
+        // LSB-first: Bit 0 gehört zu x%8==0
+        return (uint8_t)((b >> bit_idx) & 0x1u);
+    } else {
+        // MSB-first: Bit 7 gehört zu x%8==0
+        return (uint8_t)((b >> (7u - bit_idx)) & 0x1u);
+    }
+}
+
+// blitted ein XBM auf das Display (setzt Pixel einzeln), mit Clipping, Invert und optionalem Offset.
+static void BLIT_XBM_ToDisplay(const uint8_t* xbm, uint16_t w, uint16_t h,
+                               int16_t x0, int16_t y0, bool invert, bool msb_first)
+{
+    const int16_t DISP_W = 128;
+    const int16_t DISP_H = 64;
+
+    // Sichtbares Fenster (Clipping)
+    int16_t x_start = (x0 < 0) ? -x0 : 0;
+    int16_t y_start = (y0 < 0) ? -y0 : 0;
+    int16_t x_end   = (x0 + (int16_t)w > DISP_W) ? (DISP_W - x0) : (int16_t)w;
+    int16_t y_end   = (y0 + (int16_t)h > DISP_H) ? (DISP_H - y0) : (int16_t)h;
+
+    if (x_end <= 0 || y_end <= 0) return;
+
+    for (int16_t yy = y_start; yy < y_end; ++yy) {
+        for (int16_t xx = x_start; xx < x_end; ++xx) {
+            uint8_t bit = XBM_GetBit(xbm, w, (uint16_t)xx, (uint16_t)yy, msb_first);
+            if (invert) bit ^= 1u;
+            ssd1306_DrawPixel((int16_t)(x0 + xx), (int16_t)(y0 + yy), bit ? White : Black);
+        }
+    }
+}
+
+
+
